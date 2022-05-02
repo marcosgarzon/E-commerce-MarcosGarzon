@@ -20,7 +20,7 @@ const Item = ({item}) => {
         <p className="card-text">Precio: $ {precio}</p>	
       </div>
       <div className="card-list-group">
-        <button className="btn btn-primary col-md-12 mt-3" >Ver detalle</button>   
+        <button className="btn btn-primary col-md-12 mt-3">Ver detalle</button>   
       </div>
     </div>
   </>
