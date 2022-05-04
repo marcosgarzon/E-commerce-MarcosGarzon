@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { data } from "../Data/Data";
+import { detail } from "../Data/Data";
 import ItemDetail from "./ItemDetail";
 
 function ItemDetailContainer() {
@@ -9,7 +9,7 @@ function ItemDetailContainer() {
   const getItems = () => {
     const promesa = new Promise((resolve, reject) => {
         setTimeout(() => {
-          resolve(data)
+          resolve(detail)
         }, 2000);
       })
       promesa.then((res)=>{
