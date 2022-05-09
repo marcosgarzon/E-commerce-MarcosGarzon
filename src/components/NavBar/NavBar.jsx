@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { data } from "../Data/Data";
 
 export default function NavBar() {
-
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
@@ -45,7 +44,10 @@ export default function NavBar() {
               >
                 Categorías🔎
               </Link>
-              <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <ul
+                className="dropdown-menu"
+                aria-labelledby="dropdownMenuButton1"
+              >
                 <li>
                   <Link className="dropdown-item" to="/Category/espadon">
                     Espadones

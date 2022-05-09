@@ -129,25 +129,3 @@ export const data = [
   },
 ];
 
-export const detail = [
-  {
-    id: 3,
-    nombre: "Sacred Relic sword",
-    descripcion:
-      "Espada forjada con los restos de un dios que debería haber vivido una vida eterna. Los pensamientos sobre lo que presagia el arma son muchos y variados.",
-    stock: 12,
-    img: "https://eldenring.wiki.fextralife.com/file/Elden-Ring/sacred_relic_sword.png",
-    precio: 3000,
-    video: (
-      <iframe
-        width="80%"
-        height="300px"
-        src="https://www.youtube.com/embed/T4vVDyytrl4"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    ),
-  },
-];

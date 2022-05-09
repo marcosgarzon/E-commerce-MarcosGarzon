@@ -6,9 +6,7 @@ const ItemList = ({ items }) => {
     <div className="container-fluid">
       <div className="row d-flex flex-column flex-md-row justify-content-evenly col-md-12">
         {items.length > 0 ? (
-          items.map((item) => (
-            <Item key={item.id} item={item} />
-          ))
+          items.map((item) => <Item key={item.id} item={item} />)
         ) : (
           <h1> Cargando... </h1>
         )}
