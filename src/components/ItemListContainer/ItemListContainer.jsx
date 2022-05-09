@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import ItemCount from '../ItemCount/ItemCount';
 import ItemList from './ItemList';
 import { data } from '../Data/Data';
 
@@ -29,9 +28,8 @@ const ItemListContainer = ({greeting}) => {
   
 
   return (
-    <div className='container'>
-      <h2 className='bg-primary p-10'>{greeting}</h2>
-      {/* <ItemCount parrafo={"Espada de tipo colosal utilizada antiguamente por la élite de origen noble"} texto="Espadón de noble" stockItem="7" inicialContador="1"/> */}
+    <div className='container text-center'>
+      <h2 className='bg-primary text-center p-10'>{greeting}</h2>
       <ItemList items={items}/>
     </div>
   )

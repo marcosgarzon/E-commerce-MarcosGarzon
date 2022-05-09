@@ -1,11 +1,12 @@
 import React from "react";
 import royalgreatsword from "../../Assets/img/royalgreatsword.png";
-
+import { Link } from "react-router-dom";
+import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer";
 
 const Item = ({item}) => {
 
-  const {id, nombre, descripcion, stock, img, precio} = item;
-
+  const {id, categoria, nombre, descripcion, stock, img, precio} = item;
+  
 
   return (
     <>
@@ -20,7 +21,7 @@ const Item = ({item}) => {
         <p className="card-text">Precio: $ {precio}</p>	
       </div>
       <div className="card-list-group">
-        <button className="btn btn-primary col-md-12 mt-3">Ver detalle</button>   
+        <Link to={`/Item/${id}`} className="btn btn-primary col-md-12 mt-3">Ver detalle</Link>   
       </div>
     </div>
   </>
