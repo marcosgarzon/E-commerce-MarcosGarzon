@@ -1,25 +1,30 @@
 import React, { useState } from "react";
 import royalgreatsword from "../../Assets/img/royalgreatsword.png";
 
-const ItemCount = ({ stockItem, inicialContador }) => {
+const ItemCount = ({ stockItem, inicialContador, onAdd }) => {
+
   const [count, setCount] = useState(parseInt(inicialContador))
-    const [stock1, setStock] = useState(stockItem)
+  const [stock1, setStock] = useState(stockItem)
+
     const sumarItem = () => { 
         if (stock1 > count) {
             setCount(count + 1)
         }
     }
+
     const restarItem = () => { 
         if (count > 1) {
             setCount(count - 1)
         }
     }
-    const enviarCarrito = () => {
-        if (stock1 > 0 ) { 
-        setStock(stock1 - count)
-        setCount(parseInt(inicialContador))
-      }
-    }
+
+    // const enviarCarrito = () => {
+    //     if (stock1 > 0 ) { 
+    //     setStock(stock1 - count)
+    //     setCount(parseInt(inicialContador))
+    //   }
+    // }
+
   return (
 
         <div className="container-fluid">
@@ -38,7 +43,7 @@ const ItemCount = ({ stockItem, inicialContador }) => {
             </div>
             </div>
             <div>
-              <button className="btn btn-primary col-md-12 mt-3" onClick={enviarCarrito}>
+              <button className="btn btn-primary col-md-12 mt-3" onClick={()=>onAdd(count)} >
                 Agregar al carrito
               </button>
             </div>

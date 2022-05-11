@@ -1,10 +1,20 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import ItemCount from "../ItemCount/ItemCount";
 import ItemDetailContainer from "./ItemDetailContainer";
 
 const Detail = ({ product }) => {
   const { id, categoria, nombre, descripcion, stock, img, precio, video } =
     product;
+
+    const [terminar, setTerminar] = useState(false)
+
+    const onAdd = (count) => {
+          setTerminar(true)
+          console.log(count)
+
+
+    }
 
   return (
     <>
@@ -18,8 +28,13 @@ const Detail = ({ product }) => {
             <p className="pb-1">{descripcion}</p>
             <p className="pb-1">Precio: ${precio}</p>
             <div className="video">{video}</div>
-
-            <ItemCount stockItem={stock} inicialContador="1" />
+            {terminar ? (
+                  <Link to="/cart" className="btn btn-primary col-md-12 mt-3">
+                  Terminar mi compra
+                  </Link>
+            ) : (<ItemCount stockItem={stock} inicialContador="1" onAdd={onAdd}/>)
+            }
+            
           </div>
         </div>
       </div>
