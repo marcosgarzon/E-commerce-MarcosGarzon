@@ -129,3 +129,10 @@ export const data = [
   },
 ];
 
+const task = new Promise((resp) => {
+	resp(data)
+}, 2000)
+
+export const getItem = () => {
+	return task
+}

@@ -16,8 +16,6 @@ const ItemListContainer = ({ greeting }) => {
         setItems(res);
       })
       .catch((err) => console.log(err));
-
-    return () => {};
   }, []);
 
   return (

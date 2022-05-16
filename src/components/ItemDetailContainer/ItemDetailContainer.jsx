@@ -12,7 +12,7 @@ function ItemDetailContainer() {
   useEffect(() => {
     getItem();
     return () => {};
-  }, []);
+  }, [ItemId]);
 
   const getItem = () => {
     const getItemPromise = new Promise((resolve, reject) => {

@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import royalgreatsword from "../../Assets/img/royalgreatsword.png";
+import { useAppContext } from "../CartContext/AppContext";
+import { useCartContext } from "../CartContext/CartContext";
 
-const ItemCount = ({ stockItem, inicialContador, onAdd }) => {
+const ItemCount = ({ stockItem, inicialContador, onAdd, id }) => {
 
   const [count, setCount] = useState(parseInt(inicialContador))
   const [stock1, setStock] = useState(stockItem)
+
+  const {addToCart} = useCartContext()
+  const {products} = useAppContext()
 
     const sumarItem = () => { 
         if (stock1 > count) {
@@ -16,6 +21,18 @@ const ItemCount = ({ stockItem, inicialContador, onAdd }) => {
         if (count > 1) {
             setCount(count - 1)
         }
+    }
+
+
+    const handleClick = (id, cantidad) => {
+      const findProduct = products.find((producto) => producto.id === id)
+
+      if (!findProduct) {
+          alert("Error en la base de datos")
+          return
+      }
+      addToCart(findProduct, cantidad)
+      onAdd(count)
     }
 
     // const enviarCarrito = () => {
@@ -43,7 +60,7 @@ const ItemCount = ({ stockItem, inicialContador, onAdd }) => {
             </div>
             </div>
             <div>
-              <button className="btn btn-primary col-md-12 mt-3" onClick={()=>onAdd(count)} >
+              <button className="btn btn-primary col-md-12 mt-3" onClick={()=>handleClick(id, count)} >
                 Agregar al carrito
               </button>
             </div>

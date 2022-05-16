@@ -11,9 +11,6 @@ const Detail = ({ product }) => {
 
     const onAdd = (count) => {
           setTerminar(true)
-          console.log(count)
-
-
     }
 
   return (
@@ -32,7 +29,7 @@ const Detail = ({ product }) => {
                   <Link to="/cart" className="btn btn-primary col-md-12 mt-3">
                   Terminar mi compra
                   </Link>
-            ) : (<ItemCount stockItem={stock} inicialContador="1" onAdd={onAdd}/>)
+            ) : (<ItemCount stockItem={stock} inicialContador="1" onAdd={onAdd}  id={id}/>)
             }
             
           </div>
