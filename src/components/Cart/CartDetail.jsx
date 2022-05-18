@@ -1,44 +1,51 @@
 import { Link } from "react-router-dom";
 import { useCartContext } from "../CartContext/CartContext";
 
+function CartDetail({ ProuctCart }) {
+  const { deleteFromCart } = useCartContext();
+  const { cart } = useCartContext();
 
-function CartDetail( {ProuctCart} ) {
-
-  const { deleteFromCart } = useCartContext()
-  const { cart } = useCartContext()
-
-
-  const {id, nombre, precio, img, quantity} = ProuctCart
+  const { id, nombre, precio, img, quantity } = ProuctCart;
 
   const subItemClick = (id) => {
-    const findProduct = cart.find((producto) => producto.id === id)
+    const findProduct = cart.find((producto) => producto.id === id);
 
     if (!findProduct) {
-        alert("Error en la base de datos")
-        return
+      alert("Error en la base de datos");
+      return;
     }
-    deleteFromCart(findProduct)
-  }
+    deleteFromCart(findProduct);
+  };
 
   return (
-		<>
-			<div className="card p-1 m-auto mt-2 mb-2 col-11 col-md-6 col-lg-4">
-				<div className="container">
+    <>
+      <div className="card p-1 m-auto mt-2 mb-2 col-11 col-md-6 col-lg-4">
+        <div className="container">
           <div className="row m-auto col-12">
-            <img src={img} className="p-5 m-5 card__img m-auto"/> 
+            <img src={img} className="card-img-top bg-dark img-fluid img1" />
+            <div className="card-body text-center p-2">
+              <h5 className="card-title">{nombre}</h5>
+              <h6 className="card-text">Cantidad: {quantity}</h6>
+              <h6 className="card-text">Precio: $ {precio}</h6>
+            </div>
+            <div className="card-list-group text-center p-2">
+              <Link
+                className="btn btn-primary p-2 col-12 col-md-6 m-2"
+                to={`/Item/${id}`}
+              >
+                Agregar más
+              </Link>
+              <button
+                className="btn btn-danger col-12 col-md-6 m-2"
+                onClick={() => subItemClick(id)}
+              >
+                Eliminar item
+              </button>
+            </div>
           </div>
         </div>
-				<div className="card-body text-center p-3">
-					<h5 className="card-title p-3">{nombre}</h5>
-					<h6 className="p-1">Cantidad: {quantity}</h6>
-          <h6 className="p-1">Precio: ${precio}</h6>
-          <div className="row m-auto col-12 d-flex flex-column align-content-center">
-            <Link className="btn btn-primary p-2 col-12 col-md-6 m-2" to={`/Item/${id}`}>Agregar más</Link>
-            <button className="btn btn-danger col-12 col-md-6 m-2" onClick={() => subItemClick(id)}>Eliminar item</button>
-          </div>
-				</div>
-			</div>
-		</>
-  )
+      </div>
+    </>
+  );
 }
-export default CartDetail
+export default CartDetail;
