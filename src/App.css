@@ -28,3 +28,8 @@ main {
   align-items: center;
   justify-content: center;
 }
+
+.textNone{
+  text-decoration: none;
+  color: #000;
+}

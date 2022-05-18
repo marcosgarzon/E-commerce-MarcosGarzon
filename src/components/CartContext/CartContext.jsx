@@ -45,6 +45,7 @@ const CartContextProvider = ({ children }) => {
     setCart(deleteProduct);
   };
 
+  // Borrar carrito
   const deleteCart = () => setCart([]);
 
   console.log(cart)
