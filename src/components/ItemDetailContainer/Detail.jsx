@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ItemCount from "../ItemCount/ItemCount";
-import ItemDetailContainer from "./ItemDetailContainer";
 
-const Detail = ({ product }) => {
-  const { id, categoria, nombre, descripcion, stock, img, precio, video } =
-    product;
+
+const Detail = ({ item }) => {
+  const { id, categoria, nombre, descripcion, stock, img, precio, video } = item;
 
     const [terminar, setTerminar] = useState(false)
 
@@ -24,7 +23,9 @@ const Detail = ({ product }) => {
             <h1 className="pb-1">{nombre}</h1>
             <p className="pb-1">{descripcion}</p>
             <p className="pb-1">Precio: ${precio}</p>
-            <div className="video">{video}</div>
+            <div className="video">
+              <img src={video} alt="" />
+            </div>
             {terminar ? (
                   <Link to="/cart" className="btn btn-primary col-md-12 mt-3">
                   Terminar mi compra
