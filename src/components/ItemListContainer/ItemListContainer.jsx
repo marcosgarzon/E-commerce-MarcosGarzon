@@ -1,29 +1,45 @@
-import React, { useEffect, useState } from "react";
-import ItemList from "./ItemList";
-import { data } from "../Data/Data";
+import ItemList from './ItemList'
+import { useEffect, useState } from "react";
+import { collection, getDocs, getFirestore, where, query, doc} from "firebase/firestore";
+import { useParams } from 'react-router-dom';
+import db from '../../Service/Firebase';
 
-const ItemListContainer = ({ greeting }) => {
-  const [items, setItems] = useState([]);
 
-  useEffect(() => {
-    const promesa = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(data);
-      }, 2000);
-    });
-    promesa
-      .then((res) => {
-        setItems(res);
+const ItemListContainer = ({greeting}) => {
+
+  const { categoryId } = useParams();
+  
+  const [products, setProducts] = useState([])
+
+	useEffect(() => {
+		
+
+		const productos = collection(db, "productos")
+
+    if (categoryId) {
+      const q = query(collection(db, "productos"), where("categoria1", "==", categoryId) )
+      getDocs(q).then(snapshot => {
+        setProducts(snapshot.docs.map((doc) => ( { ...doc.data() } )))
       })
-      .catch((err) => console.log(err));
-  }, []);
+    } else {
+      getDocs(productos).then(snapshot => {
+        setProducts(snapshot.docs.map((doc) => ( { ...doc.data() } )))
+      })
+    }
+	}, [categoryId])
 
+
+	
   return (
-    <div className="container text-center">
-      <h2 className="bg-primary text-center p-10">{greeting}</h2>
-      <ItemList items={items} />
-    </div>
-  );
-};
+    <>
+		 <>
+      <div className="container-fluid bg-secondary">
+          <h1 className="p-5 text-light text-center">{greeting}</h1>
+          <ItemList items={products}/>   
+      </div>  
+		 </>
+    </>
+  )
+}
 
-export default ItemListContainer;
+export default ItemListContainer

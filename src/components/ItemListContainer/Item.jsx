@@ -3,12 +3,12 @@ import royalgreatsword from "../../Assets/img/royalgreatsword.png";
 import { Link } from "react-router-dom";
 import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer";
 
-const Item = ({ item }) => {
-  const { id, categoria, nombre, descripcion, stock, img, precio } = item;
+const Item = ({ product }) => {
+  const { id, categoria, nombre, descripcion, stock, img, precio } = product;
 
   return (
     <>
-      <div className="card p-1 m-1 col-md-3 d-flex over-wow">
+      <div className="card p-1 m-1 col-md-3 d-flex over-wow text-center">
         <img src={img} className="card-img-top bg-dark img-fluid img1" />
         <div className="card-body">
           <h5 className="card-title">{nombre}</h5>

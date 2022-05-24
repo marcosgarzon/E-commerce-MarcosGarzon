@@ -6,13 +6,13 @@ import { useCartContext } from "../CartContext/CartContext";
 const ItemCount = ({ stockItem, inicialContador, onAdd, id }) => {
 
   const [count, setCount] = useState(parseInt(inicialContador))
-  const [stock1, setStock] = useState(stockItem)
+ 
 
   const {addToCart} = useCartContext()
   const {products} = useAppContext()
 
     const sumarItem = () => { 
-        if (stock1 > count) {
+        if (stockItem > count) {
             setCount(count + 1)
         }
     }
@@ -45,7 +45,7 @@ const ItemCount = ({ stockItem, inicialContador, onAdd, id }) => {
   return (
 
         <div className="container-fluid">
-                      <div className="col-md.12"><p>Stock: {stock1}</p></div>
+                      <div className="col-md.12"><p>Stock: {stockItem}</p></div>
 
             <div className="d-flex justify-content-between border border-5 rounded">
 
