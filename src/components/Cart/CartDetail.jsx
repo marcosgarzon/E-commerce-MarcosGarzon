@@ -19,22 +19,16 @@ function CartDetail({ ProuctCart }) {
 
   return (
     <>
-      <div className="card p-1 m-auto mt-2 mb-2 col-11 col-md-6 col-lg-4">
+      <div className="card p-1 m-auto mt-2 mb-2 col-6 col-md-6 col-lg-4">
         <div className="container">
           <div className="row m-auto col-12">
-            <img src={img} className="card-img-top bg-dark img-fluid img1" />
+            <img src={img} className="card-img-top bg-dark img-fluid img3" />
             <div className="card-body text-center p-2">
               <h5 className="card-title">{nombre}</h5>
               <h6 className="card-text">Cantidad: {quantity}</h6>
               <h6 className="card-text">Precio: $ {precio}</h6>
             </div>
             <div className="card-list-group text-center p-2">
-              <Link
-                className="btn btn-primary p-2 col-12 col-md-6 m-2"
-                to={`/Item/${id}`}
-              >
-                Agregar más
-              </Link>
               <button
                 className="btn btn-danger col-12 col-md-6 m-2"
                 onClick={() => subItemClick(id)}

@@ -1,50 +1,66 @@
-import ItemList from './ItemList'
+import ItemList from "./ItemList";
 import { useEffect, useState } from "react";
-import { collection, getDocs, getFirestore, where, query, doc} from "firebase/firestore";
-import { useParams } from 'react-router-dom';
-import db from '../../Service/Firebase';
-import Footer from '../Footer/Footer';
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  where,
+  query,
+  doc,
+} from "firebase/firestore";
+import { useParams } from "react-router-dom";
+import db from "../../Service/Firebase";
+import Footer from "../Footer/Footer";
 
-
-const ItemListContainer = ({greeting}) => {
-
+const ItemListContainer = ({ greeting }) => {
   const { categoryId } = useParams();
-  
-  const [products, setProducts] = useState([])
 
-	useEffect(() => {
-		
+  const [products, setProducts] = useState([]);
 
-		const productos = collection(db, "productos")
+  useEffect(() => {
+    const productos = collection(db, "productos");
 
     if (categoryId) {
-      const q = query(collection(db, "productos"), where("categoria1", "==", categoryId) )
-      getDocs(q).then(snapshot => {
-        setProducts(snapshot.docs.map((doc) => ( { ...doc.data() } )))
-      })
+      const q = query(
+        collection(db, "productos"),
+        where("categoria1", "==", categoryId)
+      );
+      getDocs(q).then((snapshot) => {
+        setProducts(snapshot.docs.map((doc) => ({ ...doc.data() })));
+      });
     } else {
-      getDocs(productos).then(snapshot => {
-        setProducts(snapshot.docs.map((doc) => ( { ...doc.data() } )))
-      })
+      getDocs(productos).then((snapshot) => {
+        setProducts(snapshot.docs.map((doc) => ({ ...doc.data() })));
+      });
     }
-	}, [categoryId])
+  }, [categoryId]);
 
-
-	
   return (
     <>
-		 <>
       <div className="container-fluid bg-secondary">
-          <h1 className="p-5 text-light text-center">{greeting}</h1>
-          <ItemList items={products}/>   
-          
-      </div>  
-      <div>
-      <Footer/>
+        <h1 className="p-5 text-light text-center">{greeting}</h1>
+        { !products.length > 0 ? (
+          <div className="text-center">
+                    <div className="lds-roller">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+         </div> 
+        ) : (
+<ItemList items={products} />
+        )}
       </div>
-		 </>
+      <div>
+        <Footer />
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default ItemListContainer
+export default ItemListContainer;

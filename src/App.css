@@ -9,7 +9,7 @@ main {
 
 
 .img1{
-  object-fit: contain;
+  object-fit: cover;
   width: 100%;
   height: 30vh;
 }
@@ -28,7 +28,7 @@ main {
 .img3{
   object-fit: cover;
   width: 100%;
-  height: 60vh;
+  height: 30vh;
 }
 
 .alCentro{
@@ -48,10 +48,21 @@ main {
 height: calc(100vh - 150px);
 }
 
+.FixHeight2{
+height: 100vh;
+}
+
 .encabezado{
   font-size: 2rem;
   color: #000;
   text-align: center;
   display: flex;
   flex-direction: column;
+}
+
+.abs-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }

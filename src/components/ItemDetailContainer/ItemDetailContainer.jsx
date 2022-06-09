@@ -18,7 +18,10 @@ function ItemDetailContainer() {
 
       const itemCollection = collection(db, "productos");
       getDocs(itemCollection).then((snapshot) => {
-        const items = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+        const items = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
         res(items);
       });
     });
@@ -28,10 +31,25 @@ function ItemDetailContainer() {
     });
   };
 
-  console.log(product)
+  console.log(product);
   return (
     <>
-      <Detail item={product}/>
+      { !product.img ? (
+        <div className="position-absolute top-50 start-50 translate-middle">
+        <div className="lds-roller">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        </div>
+      ) : (
+        <Detail item={product} />
+      )}
     </>
   );
 }

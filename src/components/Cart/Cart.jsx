@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useCartContext } from "../CartContext/CartContext";
 import CartDetail from "./CartDetail";
 import Swal from "sweetalert2";
+import Footer from "../Footer/Footer";
 
 function Cart() {
   const { cart } = useCartContext();
@@ -17,20 +18,21 @@ function Cart() {
     cartState();
     sumaTotal();
     setTimeout(() => {
-      ticketCompra()
-    }, 2500);
-    
+      ticketCompra();
+    }, 2000);
   }, [cart, orderId]);
 
   //funcion para mostrar ticket
 
   const ticketCompra = () => {
-  orderId ? (Swal.fire({
-    title: "Ticket de compra:",
-    text: orderId,
-    icon: "info",
-  })) : console.log(orderId);
-}
+    orderId
+      ? Swal.fire({
+          title: "Ticket de compra:",
+          text: orderId,
+          icon: "info",
+        })
+      : console.log(orderId);
+  };
 
   //Sumar Total
   function sumaTotal() {
@@ -55,7 +57,7 @@ function Cart() {
   }
 
   //Crear orden de compra
-  const  SendCart = () => {
+  const SendCart = () => {
     //User traido de los input
     const buyer = {
       name: { nombre },
@@ -84,12 +86,12 @@ function Cart() {
     //Llevar la orden a consola
     console.log(order);
     //mostrar el ID de la compra
-    
+
     //Eliminar elementos del carrito
     deleteCart();
   };
 
-  // completar los campos con los input 
+  // completar los campos con los input
 
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -131,19 +133,17 @@ function Cart() {
     }
     Swal.fire({
       title: `Su orden de compra se genero correctamente`,
-      text: orderId,    
+      text: orderId,
       icon: "success",
     });
     SendCart();
-    
-    
   };
-  
+
   return (
     <>
       <div className="container-fluid">
         {emptyCart ? (
-          <div className="row d-flex flex-column flex-md-row justify-content-evenly">
+          <div className="row d-flex flex-column flex-md-row justify-content-evenly FixHeight2">
             <h1 className="text-center m-auto p-4">El carrito está vacio</h1>
             <div className="row m-auto col-12 d-flex flex-column align-content-center">
               <Link
@@ -160,22 +160,23 @@ function Cart() {
               <CartDetail key={p.id} ProuctCart={p} />
             ))}
             <div className="row text-center m-auto p-4">
-              <h2>Total:${total}</h2>
-              <button
-                className="btn btn-danger col-10 col-md-3 m-auto mt-4 p-2"
-                onClick={() => deleteCart()}
-              >
-                Borrar todo el carrito
-              </button>
-            
-              <div className="container">
+              <h2>Total: ${total}</h2>
+              <div className="mb-4">
+                <button
+                  className="btn btn-danger col-10 col-md-3 m-auto mt-4 p-2"
+                  onClick={() => deleteCart()}
+                >
+                  Borrar todo el carrito
+                </button>
+              </div>
+              <div className="container border solid">
                 <form
                   onSubmit={onSubmit}
                   className="form needs-validation"
                   id="form"
                   noValidate
                 >
-                  <h1 className="pt-4">Formulario de contacto</h1>
+                  <h1 className="pt-4">Formulario de compra</h1>
                   <div className="row text-center">
                     <div className="col-md-12">
                       <div className="form-group p-2">
@@ -203,20 +204,20 @@ function Cart() {
                           required
                         />
                       </div>
-                    </div>                  
-                      <div className="col-md-6">
-                        <div className="form-group p-2">
-                          <input
-                            type="text"
-                            className="form-control"
-                            onChange={handleInput}
-                            name="phone"
-                            id="phone"
-                            placeholder="Teléfono"
-                            required
-                          />
-                        </div>
-                      </div>        
+                    </div>
+                    <div className="col-md-6">
+                      <div className="form-group p-2">
+                        <input
+                          type="text"
+                          className="form-control"
+                          onChange={handleInput}
+                          name="phone"
+                          id="phone"
+                          placeholder="Teléfono"
+                          required
+                        />
+                      </div>
+                    </div>
                   </div>
                   <button
                     type="submit"
@@ -233,6 +234,7 @@ function Cart() {
           </div>
         )}
       </div>
+      <Footer />
     </>
   );
 }

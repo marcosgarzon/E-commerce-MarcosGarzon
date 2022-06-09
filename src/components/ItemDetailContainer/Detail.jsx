@@ -114,7 +114,7 @@ const Detail = ({ item }) => {
           Una vez que terminaste de elegir hace click en "terminar compra". Es
           importante que escribas correctamente tu mail, ya que allí te van a
           llegar todas las notificaciones de compra, pago y envío al igual que
-          todos los datos que se solicitan,los cuales son necesarios para poder
+          todos los datos que se solicitan, los cuales son necesarios para poder
           efectuar las entregas a nuestros clientes. 
         </p>
       </div>

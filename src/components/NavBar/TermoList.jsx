@@ -1,30 +1,45 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
-
-
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  query,
+  where,
+} from "firebase/firestore";
 
 function TermoList() {
+  const [products, setProducts] = useState([]);
 
-  const [products, setProducts] = useState([])
+  useEffect(() => {
+    const db = getFirestore();
 
-	useEffect(() => {
-		const db = getFirestore()
-
-    const q = query(collection(db, "productos"), where("categoria1", "==", "termo") )
-		getDocs(q).then(snapshot => {
-			setProducts(snapshot.docs.map((doc) => ( { ...doc.data() } )))
-		})
-	}, [])
-  
+    const q = query(
+      collection(db, "productos"),
+      where("categoria1", "==", "termo")
+    );
+    getDocs(q).then((snapshot) => {
+      setProducts(snapshot.docs.map((doc) => ({ ...doc.data() })));
+    });
+  }, []);
 
   return (
     <>
       <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-        <li ><Link to={`/itemListContainer/${"termo"}`} className="dropdown-item">Todo</Link></li>
-        {products.map(l => <li key={l.id}><Link to={`Item/${l.id}`} className="dropdown-item">{l.nombre1}</Link></li>)}
-      </ul>        
+        <li>
+          <Link to={`/itemListContainer/${"termo"}`} className="dropdown-item">
+            Todo
+          </Link>
+        </li>
+        {products.map((l) => (
+          <li key={l.id}>
+            <Link to={`Item/${l.id}`} className="dropdown-item">
+              {l.nombre1}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </>
-  )
+  );
 }
-export default TermoList
+export default TermoList;
