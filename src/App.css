@@ -6,6 +6,8 @@
 main {
   overflow: hidden; }
 
+
+
 .img1{
   object-fit: contain;
   width: 100%;
@@ -38,4 +40,18 @@ main {
 .textNone{
   text-decoration: none;
   color: #000;
+}
+
+
+
+.FixHeight{
+height: calc(100vh - 150px);
+}
+
+.encabezado{
+  font-size: 2rem;
+  color: #000;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
 }

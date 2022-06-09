@@ -34,11 +34,6 @@ const CartContextProvider = ({ children }) => {
   const deleteFromCart = (producto) => {
     const newCart = [...cart];
 
-    const productoIsInCart = isInCart(producto.id);
-
-    if (!productoIsInCart) {
-      return
-    }
 
     const deleteProduct = newCart.filter((prod) => prod.id !== producto.id);
 
@@ -57,6 +52,7 @@ const CartContextProvider = ({ children }) => {
         deleteFromCart,
         deleteCart,
         setCart,
+        isInCart,
       }}
     >
       {children}

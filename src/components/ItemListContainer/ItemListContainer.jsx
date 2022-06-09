@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { collection, getDocs, getFirestore, where, query, doc} from "firebase/firestore";
 import { useParams } from 'react-router-dom';
 import db from '../../Service/Firebase';
+import Footer from '../Footer/Footer';
 
 
 const ItemListContainer = ({greeting}) => {
@@ -36,7 +37,11 @@ const ItemListContainer = ({greeting}) => {
       <div className="container-fluid bg-secondary">
           <h1 className="p-5 text-light text-center">{greeting}</h1>
           <ItemList items={products}/>   
+          
       </div>  
+      <div>
+      <Footer/>
+      </div>
 		 </>
     </>
   )
