@@ -3,27 +3,15 @@ import { Link } from "react-router-dom";
 import ItemCount from "../ItemCount/ItemCount";
 import { TbTruckDelivery } from "react-icons/tb";
 import Footer from "../Footer/Footer";
-import { useAppContext } from "../CartContext/AppContext";
 import { useCartContext } from "../CartContext/CartContext";
 
-
-
-
-
-
 const Detail = ({ item }) => {
-  const { id, categoria, nombre, descripcion, stock, img, precio, video } =
+  const { id, nombre, descripcion, stock, img, precio, video } =
     item;
 
-  const [terminar, setTerminar] = useState(false);
 
+  const { isInCart } = useCartContext();
 
-
-  const { isInCart } = useCartContext()
-
-  const onAdd = (count) => {
-    setTerminar(true);
-  };
 
 
   return (
@@ -56,7 +44,11 @@ const Detail = ({ item }) => {
                 <img src={img} className="d-block w-100 h-100 img3" alt="..." />
               </div>
               <div class="carousel-item">
-                <img src={video} className="d-block w-100 h-100 img3" alt="..." />
+                <img
+                  src={video}
+                  className="d-block w-100 h-100 img3"
+                  alt="..."
+                />
               </div>
             </div>
             <button
@@ -93,13 +85,14 @@ const Detail = ({ item }) => {
             </p>
             <p> Hasta 12 cuotas sin interés con tarjeta de crédito </p>
             <p className="pb-1">Precio: ${precio}</p>
-            { !isInCart(id) ? (
+            {!isInCart(id) ? (
               <ItemCount
-              stockItem={stock}
-              inicialContador="1"
-              onAdd={onAdd}
-              id={id}
-            />) : (
+                stockItem={stock}
+                inicialContador="1"
+                
+                id={id}
+              />
+            ) : (
               <Link to="/cart" className="btn btn-primary col-md-12 mt-3">
                 Terminar mi compra
               </Link>
@@ -110,12 +103,13 @@ const Detail = ({ item }) => {
       <div className="text-center container pt-4 pb-4">
         <h6 className="encabezado">¿Cómo comprar?</h6>
         <p className="pt-4 pb-4">
-          Podes comprar de forma online desde este sitio. Elegí los productos que quieras de las distintas categorías y agregalas a tu carrito. 
-          Una vez que terminaste de elegir hace click en "terminar compra". Es
+          Podes comprar de forma online desde este sitio. Elegí los productos
+          que quieras de las distintas categorías y agregalas a tu carrito. Una
+          vez que terminaste de elegir hace click en "terminar compra". Es
           importante que escribas correctamente tu mail, ya que allí te van a
           llegar todas las notificaciones de compra, pago y envío al igual que
           todos los datos que se solicitan, los cuales son necesarios para poder
-          efectuar las entregas a nuestros clientes. 
+          efectuar las entregas a nuestros clientes.
         </p>
       </div>
       <div className="text-end mb-auto">

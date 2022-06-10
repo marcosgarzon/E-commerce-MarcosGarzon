@@ -34,18 +34,18 @@ function ItemDetailContainer() {
   console.log(product);
   return (
     <>
-      { !product.img ? (
+      {!product.img ? (
         <div className="position-absolute top-50 start-50 translate-middle">
-        <div className="lds-roller">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+          <div className="lds-roller">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
         </div>
       ) : (
         <Detail item={product} />

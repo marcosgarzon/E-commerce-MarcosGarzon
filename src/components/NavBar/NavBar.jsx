@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
-
 import MateList from "./MateList";
 import TermoList from "./TermoList";
 

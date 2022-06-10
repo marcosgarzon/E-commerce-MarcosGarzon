@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer";
 
 const Item = ({ product }) => {
-  const { id, categoria, nombre, descripcion, stock, img, precio } = product;
+  const { id, nombre, descripcion, stock, img, precio } = product;
 
   return (
     <>

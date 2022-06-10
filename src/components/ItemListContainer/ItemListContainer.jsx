@@ -3,10 +3,8 @@ import { useEffect, useState } from "react";
 import {
   collection,
   getDocs,
-  getFirestore,
   where,
   query,
-  doc,
 } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 import db from "../../Service/Firebase";
@@ -39,21 +37,21 @@ const ItemListContainer = ({ greeting }) => {
     <>
       <div className="container-fluid bg-secondary">
         <h1 className="p-5 text-light text-center">{greeting}</h1>
-        { !products.length > 0 ? (
+        {!products.length > 0 ? (
           <div className="text-center">
-                    <div className="lds-roller">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                  </div>
-         </div> 
+            <div className="lds-roller">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
         ) : (
-<ItemList items={products} />
+          <ItemList items={products} />
         )}
       </div>
       <div>

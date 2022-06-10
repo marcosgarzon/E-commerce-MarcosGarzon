@@ -83,10 +83,7 @@ function Cart() {
     const db = getFirestore();
     const ordersCollection = collection(db, "orders");
     addDoc(ordersCollection, order).then(({ id }) => setOrderId(id));
-    //Llevar la orden a consola
-    console.log(order);
-    //mostrar el ID de la compra
-
+    
     //Eliminar elementos del carrito
     deleteCart();
   };
@@ -132,7 +129,7 @@ function Cart() {
       return;
     }
     Swal.fire({
-      title: `Su orden de compra se genero correctamente`,
+      title: `Su orden de compra se genero correctamente, aguarde`,
       text: orderId,
       icon: "success",
     });
@@ -223,7 +220,6 @@ function Cart() {
                     type="submit"
                     id="form"
                     className="btn btn-primary col-10 col-md-3 m-auto mt-4 p-2"
-                    // onClick={() => SendCart()}
                     required
                   >
                     Finalizar compra

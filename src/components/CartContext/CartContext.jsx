@@ -5,10 +5,9 @@ const CartContext = createContext();
 export const useCartContext = () => useContext(CartContext);
 
 const CartContextProvider = ({ children }) => {
-
   //logica
   const [cart, setCart] = useState([]);
-  
+
   //Validar si el item esta en el carrito
   const isInCart = (id) => cart.find((prod) => prod.id === id);
 
@@ -34,7 +33,6 @@ const CartContextProvider = ({ children }) => {
   const deleteFromCart = (producto) => {
     const newCart = [...cart];
 
-
     const deleteProduct = newCart.filter((prod) => prod.id !== producto.id);
 
     setCart(deleteProduct);
@@ -42,7 +40,6 @@ const CartContextProvider = ({ children }) => {
 
   // Borrar carrito
   const deleteCart = () => setCart([]);
-
 
   return (
     <CartContext.Provider
