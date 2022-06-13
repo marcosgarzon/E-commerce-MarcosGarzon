@@ -11,7 +11,7 @@ import db from "../../Service/Firebase";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 
-const ItemListContainer = ({ greeting }) => {
+const ItemListContainer = () => {
   const { categoryId } = useParams();
 
   const [products, setProducts] = useState([]);
