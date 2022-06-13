@@ -6,10 +6,10 @@ import TermoList from "./TermoList";
 function NavBar() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark pl-3 pr-3">
         <div className="container-fluid">
           <Link to={`/`} className="navbar-brand">
-            Tienda-Mate
+            Tienda de Mate
           </Link>
           <button
             className="navbar-toggler"

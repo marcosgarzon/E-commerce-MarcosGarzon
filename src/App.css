@@ -66,3 +66,27 @@ height: 100vh;
   justify-content: center;
   min-height: 100vh;
 }
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.header__container {
+  height: 60vh;
+  background: url(https://fotos.perfil.com//2019/11/28/900/0/es-aconsejable-elegir-yerba-con-poco-polvo-y-tomar-mate-a-una-temperatura-no-muy-elevada-810003.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  
+}
+
+.header__btn {
+  width: 15rem  !important;
+}

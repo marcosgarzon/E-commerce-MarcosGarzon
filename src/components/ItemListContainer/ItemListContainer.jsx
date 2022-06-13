@@ -9,6 +9,7 @@ import {
 import { useParams } from "react-router-dom";
 import db from "../../Service/Firebase";
 import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
 
 const ItemListContainer = ({ greeting }) => {
   const { categoryId } = useParams();
@@ -35,8 +36,8 @@ const ItemListContainer = ({ greeting }) => {
 
   return (
     <>
-      <div className="container-fluid bg-secondary">
-        <h1 className="p-5 text-light text-center">{greeting}</h1>
+      <div className="container-fluid m-0 p-0 bg-secondary">
+        <Header/>
         {!products.length > 0 ? (
           <div className="text-center">
             <div className="lds-roller">
@@ -51,7 +52,10 @@ const ItemListContainer = ({ greeting }) => {
             </div>
           </div>
         ) : (
+          <>
+          
           <ItemList items={products} />
+          </>
         )}
       </div>
       <div>
