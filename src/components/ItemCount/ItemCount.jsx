@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useAppContext } from "../CartContext/AppContext";
 import { useCartContext } from "../CartContext/CartContext";
 
-const ItemCount = ({ stockItem, inicialContador, onAdd, id }) => {
+const ItemCount = ({ stockItem, inicialContador, id }) => {
   const [count, setCount] = useState(parseInt(inicialContador));
 
   const { addToCart } = useCartContext();
@@ -28,7 +28,7 @@ const ItemCount = ({ stockItem, inicialContador, onAdd, id }) => {
       return;
     }
     addToCart(findProduct, cantidad);
-    onAdd(count);
+    
   };
 
 
