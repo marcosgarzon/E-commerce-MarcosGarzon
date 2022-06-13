@@ -6,6 +6,10 @@ Puede ingresar en la página a través del siguiente link: https://e-commerce-ma
 
 En el mismo se encuentra toda la información e imagenes de productos así como también la orden de compra que genere el usuario.
 
+# Demostración de compra:
+
+![Demo_de_Ecommerce](https://user-images.githubusercontent.com/96453171/173424477-546275d5-805d-44a9-9d4c-8f0d980eaa69.gif)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
