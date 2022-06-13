@@ -8,7 +8,7 @@ En el mismo se encuentra toda la información e imagenes de productos así como 
 
 # Demostración de compra:
 
-![Demo_de_Ecommerce](https://user-images.githubusercontent.com/96453171/173424477-546275d5-805d-44a9-9d4c-8f0d980eaa69.gif)
+![Demo_de_Ecommerce (1)](https://user-images.githubusercontent.com/96453171/173425431-115b731c-9c70-4f57-8147-037cbe582c57.gif)
 
 # Getting Started with Create React App
 
