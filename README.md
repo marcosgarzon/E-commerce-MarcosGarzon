@@ -1,4 +1,4 @@
-# Página E-coommerce por Marcos Garzon.
+# Página E-commerce por Marcos Garzon.
 
 Puede ingresar en la página a través del siguiente link: https://e-commerce-marcosgarzon.vercel.app/
 
