@@ -31,7 +31,7 @@ function ItemDetailContainer() {
     });
   };
 
-  console.log(product);
+
   return (
     <>
       {!product.img ? (

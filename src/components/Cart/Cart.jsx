@@ -19,7 +19,7 @@ function Cart() {
     sumaTotal();
     setTimeout(() => {
       ticketCompra();
-    }, 2000);
+    }, 1500);
   }, [cart, orderId]);
 
   //funcion para mostrar ticket
@@ -83,6 +83,9 @@ function Cart() {
     const db = getFirestore();
     const ordersCollection = collection(db, "orders");
     addDoc(ordersCollection, order).then(({ id }) => setOrderId(id));
+
+    // consologuear la orden
+    console.log(order)
     
     //Eliminar elementos del carrito
     deleteCart();
@@ -130,7 +133,6 @@ function Cart() {
     }
     Swal.fire({
       title: `Su orden de compra se genero correctamente, aguarde`,
-      text: orderId,
       icon: "success",
     });
     SendCart();
