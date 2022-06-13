@@ -2,10 +2,12 @@
 
 Puede ingresar en la página a través del siguiente link: https://e-commerce-marcosgarzon.vercel.app/
 
-# El proyecto utiliza Firestore Database para alojar toda la información e imagenes de productos así como también la orden de compra que genere el usuario.
+# El proyecto utiliza Firestore Database
 
+En el mismo se encuentra toda la información e imagenes de productos así como también la orden de compra que genere el usuario.
 
-Getting Started with Create React App
+# Getting Started with Create React App
+
 This project was bootstrapped with Create React App.
 
 Available Scripts
